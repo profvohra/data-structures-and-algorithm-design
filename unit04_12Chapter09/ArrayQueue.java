@@ -1,6 +1,7 @@
-package unit04_11Chapter08;
+package unit04_12Chapter09;
 
 import unit03_10Chapter07.QueueInterface;
+import unit03_11Chapter08.EmptyQueueException;
 
 /**
    A class that implements a queue of objects by using an array.
@@ -139,4 +140,18 @@ public final class ArrayQueue<T> implements QueueInterface<T>
 			dequeue();
 	} // end clear
   
+   // @author Frank M. Carrano, Timothy M. Henry
+   // @version 5.0
+   public void display()
+   {
+      displayArray(frontIndex, backIndex);
+   } // end display
+
+   private void displayArray(int first, int last) 
+   {
+      System.out.println(queue[first]);
+      if (first < last)
+         displayArray(first + 1, last);
+   } // end displayArray
+   
 } // end ArrayQueue

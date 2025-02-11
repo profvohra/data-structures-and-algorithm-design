@@ -1,6 +1,7 @@
-package unit04_11Chapter08;
+package unit04_12Chapter09;
 
 import unit03_10Chapter07.QueueInterface;
+import unit03_11Chapter08.EmptyQueueException;
 
 /**
    A class that implements a queue of objects by using
@@ -76,6 +77,37 @@ public final class LinkedQueue<T> implements QueueInterface<T>
     lastNode = null;
     } // end clear
 
+   // @author Frank M. Carrano, Timothy M. Henry
+   // @version 5.0
+   public void display()
+   {
+      displayChain(firstNode);
+   } // end display
+
+   private void displayChain(Node nodeOne) 
+   {
+      if (nodeOne != null)
+      {
+         System.out.println(nodeOne.getData()); // Display data in first node
+         displayChain(nodeOne.getNextNode());   // Display rest of chain
+      } // end if
+   } // end displayChain
+
+   // @author Frank M. Carrano, Timothy M. Henry
+   // @version 5.0
+   public void displayBackward()
+   {
+      displayChainBackward(firstNode);
+   } // end displayBackward
+
+   private void displayChainBackward(Node nodeOne) 
+   {
+      if (nodeOne != null)
+      {
+         displayChainBackward(nodeOne.getNextNode());
+         System.out.println(nodeOne.getData());
+      } // end if
+   } // end displayChainBackward
 
 	private class Node
 	{
