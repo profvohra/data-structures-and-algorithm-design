@@ -83,6 +83,8 @@ public final class LinkedStack<T> implements StackInterface<T>
          return data;
       } // end getData
       
+      
+      @SuppressWarnings("unused")
       private void setData(T newData)
       {
          data = newData;
@@ -93,6 +95,7 @@ public final class LinkedStack<T> implements StackInterface<T>
          return next;
       } // end getNextNode
       
+      @SuppressWarnings("unused")
       private void setNextNode(Node nextNode)
       {
          next = nextNode;
