@@ -18,10 +18,12 @@ public class SortArray {
    * @param n An integer > 0.
    */
   public static <T extends Comparable<? super T>> void selectionSort(T[] a, int n) {
+    System.out.println("--- Selection Sort ---");
     for (int index = 0; index < n - 1; index++) {
+      System.out.print(Arrays.toString(a) + " ");
       int indexOfNextSmallest = getIndexOfSmallest(a, index, n - 1);
+      System.out.println("Select " + a[indexOfNextSmallest]);
       swap(a, index, indexOfNextSmallest);
-      System.out.println("Selected " + a[index] + " " + Arrays.toString(a));
       // Assertion: a[0] <= a[1] <= . . . <= a[index] <= all other a[i]
     } // end for
   } // end selectionSort
@@ -56,6 +58,7 @@ public class SortArray {
   public static <T extends Comparable<? super T>>
   void insertionSort(T[] a, int first, int last)
   {
+    System.out.println("--- Insertion Sort ---");
      for (int unsorted = first + 1; unsorted <= last; unsorted++)
      {   // Assertion: a[first] <= a[first + 1] <= ... <= a[unsorted - 1]
         
@@ -72,7 +75,8 @@ public class SortArray {
      
      while ((index >= begin) && (anEntry.compareTo(a[index]) < 0))
      {
-      System.out.println("Insert " + anEntry + " " + Arrays.toString(a));
+      System.out.print(Arrays.toString(a));
+      System.out.println(" Insert " + anEntry);
       a[index + 1] = a[index]; // Make room
       a[index] = anEntry;
         index--;
@@ -80,8 +84,9 @@ public class SortArray {
      
      // Assertion: a[index + 1] is available
      a[index + 1] = anEntry;  // Insert
-     System.out.println("Insert " + anEntry + " " + Arrays.toString(a));
-    } // end insertInOrder
+     System.out.print(Arrays.toString(a));
+     System.out.println(" Insert " + anEntry);
+   } // end insertInOrder
 
        /** Sorts equally spaced elements of an array into ascending order.
     @param a      An array of Comparable objects.
@@ -94,25 +99,30 @@ public class SortArray {
    public static <T extends Comparable<? super T>>
    void shellSort(T[] a, int first, int last)
    {
-      int n = last - first + 1; // Number of array entries
+    System.out.println("--- Shell Sort ---");
+    System.out.print(Arrays.toString(a));
+    int n = last - first + 1; // Number of array entries
+    System.out.print(" Size: " + n);
       int space = n / 2;
+      System.out.print(" Space: " + space);
       while (space > 0)
       {
-        System.out.println("--- Space = " + space + " ---");
           for (int begin = first; begin < first + space; begin++)
          {
           /** This code is for printing purposes only */
-          System.out.print("Order: ");
+          System.out.print(" Order: ");
           for (int i = begin; i < last + 1; i += space)
             System.out.print(a[i] + " ");
           System.out.println();
-          System.out.println(Arrays.toString(a));
           /** This code is for printing purposes only */
 
             incrementalInsertionSort(a, begin, last, space);
-         } // end for
+            System.out.print(Arrays.toString(a));
+          } // end for
          space = space / 2;
+         System.out.print(" Space: " + space);
         } // end while
+        System.out.println();
    } // end shellSort
 
    private static <T extends Comparable<? super T>>
