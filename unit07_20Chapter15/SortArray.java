@@ -26,6 +26,7 @@ public class SortArray {
       swap(a, index, indexOfNextSmallest);
       // Assertion: a[0] <= a[1] <= . . . <= a[index] <= all other a[i]
     } // end for
+    System.out.println(Arrays.toString(a));
   } // end selectionSort
 
   // Finds the index of the smallest value in a portion of an array a.
