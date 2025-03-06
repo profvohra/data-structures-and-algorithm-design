@@ -1,7 +1,5 @@
 package unit07_20Chapter15;
 
-import java.util.Arrays;
-
 public class SortArrayDriver {
   
   public static void main(String[] args) {
