@@ -105,12 +105,12 @@ public class SortArray {
     int n = last - first + 1; // Number of array entries
     System.out.print(" Size: " + n);
       int space = n / 2;
-      System.out.print(" Space: " + space);
       while (space > 0)
       {
           for (int begin = first; begin < first + space; begin++)
          {
           /** This code is for printing purposes only */
+          System.out.print(" Space: " + space);
           System.out.print(" Order: ");
           for (int i = begin; i < last + 1; i += space)
             System.out.print(a[i] + " ");
@@ -121,7 +121,6 @@ public class SortArray {
             System.out.print(Arrays.toString(a));
           } // end for
          space = space / 2;
-         System.out.print(" Space: " + space);
         } // end while
         System.out.println();
    } // end shellSort
